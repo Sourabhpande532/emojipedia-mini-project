@@ -22,7 +22,7 @@ console.log(Object.keys(emojiDictionary));
 const turnDictionaryIntoArray = Object.keys(emojiDictionary);
 
 function App() {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("Result will show here");
 
   /* handler section */
   const readUserValue = (event) => {
