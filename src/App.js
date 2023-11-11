@@ -13,6 +13,9 @@ let emojiDictionary = {
   "😅": "Rat a smell",
 };
 console.log(emojiDictionary["😍"]);
+console.log(Object.keys(emojiDictionary));
+
+const turnDictionaryIntoArray = Object.keys(emojiDictionary)
 
 function App() {
   const [count, setCount] = useState(0);
@@ -24,13 +27,23 @@ function App() {
   };
 
   const readUserValue = (event) => {
-   let userInputQuerry = event.target.value;
-   let userInputEmoji = emojiDictionary[userInputQuerry]
-   if(userInputEmoji === undefined){
-    userInputEmoji = "Currently Not Avalable"
-   }
-   setSearch(userInputEmoji)
+    let userInputQuerry = event.target.value;
+    if (userInputQuerry in emojiDictionary) {
+      setSearch(emojiDictionary[userInputQuerry]);
+    } else {
+      setSearch("Fail to recognize try another time");
+    }
+    // let userInputEmoji = emojiDictionary[userInputQuerry];
+    //  if(userInputEmoji === undefined){
+    //   userInputEmoji = "Currently Not Avalable"
+    //  }
+    //  setSearch(userInputEmoji)
   };
+
+  const getInfoOnClick = (emojiItem)=>{
+    let meaning = emojiDictionary[emojiItem];
+    setSearch(meaning);
+  }
 
   return (
     <div className='App'>
@@ -41,6 +54,15 @@ function App() {
       <hr></hr>
       <input type='text' placeholder='type here..' onChange={readUserValue} />
       <h1>{search}</h1>
+      {turnDictionaryIntoArray.map((item,index)=>{
+        return(
+          <span 
+          style={{fontSize:"3rem"}}
+          onClick={()=>getInfoOnClick(item)}
+          >
+          {item}</span>
+        )
+  })}
     </div>
   );
 }
