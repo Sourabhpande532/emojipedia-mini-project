@@ -44,7 +44,7 @@ function App() {
       <input
         type='text'
         className='input'
-        placeholder='type here..'
+        placeholder='Insert an emoji here to know its real meaning '
         onChange={readUserValue}
       />
       <h1 className="showMessage">{search}</h1>

@@ -20,5 +20,5 @@ By sourabh pande
 [ <img src= "https://img.shields.io/badge/Go LiVE-1DA1F?style=for-the-badge&logo=&logoColor=white" />](https://emojipedia-neog-project.vercel.app/) 
 
 
-## ![website](./images/emoji.png)
+## ![website](./images/emoji2.png)
 ---
