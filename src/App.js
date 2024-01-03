@@ -1,7 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 
-let emojiDictionary = {
+let emojiMeanings = {
   "🫡": "salute",
   "😍": "On the Moon",
   "😅": "Rat a smell",
@@ -15,44 +15,44 @@ let emojiDictionary = {
   "🥳": "Happy Birthday",
 };
 
-/* confirm befour */
-console.log(emojiDictionary["😍"]);
-console.log(Object.keys(emojiDictionary));
-
-const turnDictionaryIntoArray = Object.keys(emojiDictionary);
+const turnEmojiKeysIntoArray = Object.keys(emojiMeanings);
 
 function App() {
   const [search, setSearch] = useState("Result will show here");
 
-  /* handler section */
+  // Event handler for input change
   const readUserValue = (event) => {
-    let userInputQuerry = event.target.value;
-    if (userInputQuerry in emojiDictionary) {
-      setSearch(emojiDictionary[userInputQuerry]);
+    let userInputEmoji = event.target.value;
+    if (userInputEmoji in emojiMeanings) {
+      setSearch(emojiMeanings[userInputEmoji]);
     } else {
       setSearch("Fail to recognize try another time");
     }
   };
 
-  const getInfoOnClick = (emojiItem) => {
-    let meaning = emojiDictionary[emojiItem];
+  // Event Handler for Emoji Click:
+  const handleEmojiClick = (emojiItem) => {
+    let meaning = emojiMeanings[emojiItem];
     setSearch(meaning);
   };
+
+  // JSX
   return (
     <div className='App'>
-      <h1 style={{fontSize:"3.5rem",color:"#fafafa"}}>Emoji-Pedia</h1>
+      <h1 style={{ fontSize: "3.5rem", color: "#fafafa" }}>Emoji-Pedia</h1>
       <input
         type='text'
         className='input'
         placeholder='Insert an emoji here to know its real meaning '
         onChange={readUserValue}
       />
-      <h1 className="showMessage">{search}</h1>
-      {turnDictionaryIntoArray.map((item, index) => {
+      <h1 className='showMessage'>{search}</h1>
+      {turnEmojiKeysIntoArray.map((item, index) => {
         return (
           <span
+            key={index}
             style={{ fontSize: "2.5rem", cursor: "pointer" }}
-            onClick={() => getInfoOnClick(item)}>
+            onClick={() => handleEmojiClick(item)}>
             {item}
           </span>
         );
