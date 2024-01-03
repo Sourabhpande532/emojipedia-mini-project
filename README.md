@@ -4,7 +4,7 @@ By sourabh pande
  ![sourabh](https://img.shields.io/badge/sourabh--Pande-JS--Developer-green)
 
 ---
-## This is an emojipedia app made with pure javascript it will help you to find meaning of each emoji.
+## This is an emojipedia app made with pure React Js it will help you to find meaning of each emoji.
 
 ---
 ## Technologies used
@@ -14,6 +14,8 @@ By sourabh pande
 > HTML
 
 > CSS
+
+> React
 ---
 
 
